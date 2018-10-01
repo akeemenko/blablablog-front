@@ -1,0 +1,6 @@
+{
+  "/mp-admin/*": {
+    "target": "http://195.201.92.96",
+    "secure": false
+  }
+}
