@@ -1,5 +1,5 @@
 {
-  "/mp-admin/*": {
+  "/blablablog-api/*": {
     "target": "http://195.201.92.96",
     "secure": false
   }

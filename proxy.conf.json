@@ -1,6 +1,6 @@
 {
-  "/mp-admin/*": {
-    "target": "http://localhost:8089",
+  "/blablablog-api/*": {
+    "target": "http://localhost:8080",
     "secure": false
   }
 }
