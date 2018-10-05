@@ -38,10 +38,10 @@ $(document).ready(function () {
         var textHeight = $(x).height();
         $(y).css('min-height', textHeight);
     }
-    equalizeHeight('.featured-posts .text', '.featured-posts .image');
+    equalizeHeight('.featured-hotPosts .text', '.featured-hotPosts .image');
 
     $(window).resize(function () {
-        equalizeHeight('.featured-posts .text', '.featured-posts .image');
+        equalizeHeight('.featured-hotPosts .text', '.featured-hotPosts .image');
     });
 
 

@@ -9,6 +9,7 @@ import { PostComponent } from './post/post.component';
 import {PublicGuard} from './public.guard';
 import {TopMenuComponent} from '../static/top-menu/top-menu.component';
 import {FooterComponent} from '../static/footer/footer.component';
+import {PublicService} from './public-service';
 
 // определение маршрутов
 const appRoutes: Routes = [
@@ -40,6 +41,7 @@ const appRoutes: Routes = [
     FooterComponent
   ],
   providers: [
+    PublicService,
     PublicGuard
   ]
 })
