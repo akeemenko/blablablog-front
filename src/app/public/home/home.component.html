@@ -96,7 +96,7 @@
     </header>
 
     <div class="row">
-      <ng-container *ngFor="let post of hotPosts">
+      <ng-container *ngFor="let post of lastPosts">
         <div class="post col-md-4">
           <div class="post-thumbnail">
             <a [routerLink]="['/post/', post.permaLink]">

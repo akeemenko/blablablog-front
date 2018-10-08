@@ -10,6 +10,7 @@ export class PostProto {
   private _tags: Array<string>;
   private _author: string;
   private _comments: Array<CommentProto>;
+  private _views: number;
   private _createTimestamp: number;
   private _updateTimestamp: null;
 
@@ -76,6 +77,14 @@ export class PostProto {
 
   set comments(value: Array<CommentProto>) {
     this._comments = value;
+  }
+
+  get views(): number {
+    return this._views;
+  }
+
+  set views(value: number) {
+    this._views = value;
   }
 
   get createTimestamp(): number {
