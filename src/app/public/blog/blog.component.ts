@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {PublicService} from '../public-service';
+import {PostProto} from '../../../models/post-proto';
 
 @Component({
   selector: 'app-blog',
@@ -7,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogComponent implements OnInit {
 
-  constructor() { }
+  posts: Array<PostProto>;
+  constructor(private service: PublicService) {
+    this.service.getLastPosts(4).subscribe(data => {
+      this.posts = data;
+    });
+  }
 
   ngOnInit() {
   }

@@ -13,7 +13,7 @@ export class PostComponent implements OnInit {
   permalink: string;
   post: PostProto;
 
-  constructor(public service: PublicService,
+  constructor(private service: PublicService,
               private route: ActivatedRoute) {
     this.route.params.subscribe(params => {
       this.permalink = params['permalink'];
