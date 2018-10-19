@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {PublicService} from '../public-service';
+import {ActivatedRoute} from '@angular/router';
+import {PostProto} from '../../../models/post-proto';
 
 @Component({
   selector: 'app-post',
@@ -7,9 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostComponent implements OnInit {
 
-  constructor() { }
+  permalink: string;
+  post: PostProto;
+
+  constructor(public service: PublicService,
+              private route: ActivatedRoute) {
+    this.route.params.subscribe(params => {
+      this.permalink = params['permalink'];
+      this.loadPost();
+    });
+
+  }
 
   ngOnInit() {
   }
 
+  /**
+   * Load post by permalink
+   */
+  loadPost() {
+    this.service.getPostByPermalink(this.permalink).subscribe(data => {
+      this.post = data;
+    });
+  }
 }

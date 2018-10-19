@@ -10,6 +10,10 @@ import {PublicGuard} from './public.guard';
 import {TopMenuComponent} from '../static/top-menu/top-menu.component';
 import {FooterComponent} from '../static/footer/footer.component';
 import {PublicService} from './public-service';
+import {WidgetLastPostComponent} from '../static/right-aside/widget-last-post/widget-last-post.component';
+import {AsideComponent} from '../static/right-aside/aside/aside.component';
+import {WidgetTagsComponent} from '../static/right-aside/widget-tags/widget-tags.component';
+import {WidgetSearchComponent} from '../static/right-aside/widget-search/widget-search.component';
 
 // определение маршрутов
 const appRoutes: Routes = [
@@ -21,7 +25,7 @@ const appRoutes: Routes = [
       [
         {path: '', component: HomeComponent},
         {path: 'blog', component: BlogComponent},
-        {path: 'post', component: PostComponent}
+        {path: 'post/:permalink', component: PostComponent}
       ]
   }];
 
@@ -38,7 +42,11 @@ const appRoutes: Routes = [
     BlogComponent,
     PostComponent,
     TopMenuComponent,
-    FooterComponent
+    FooterComponent,
+    AsideComponent,
+    WidgetSearchComponent,
+    WidgetLastPostComponent,
+    WidgetTagsComponent
   ],
   providers: [
     PublicService,

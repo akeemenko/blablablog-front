@@ -4,12 +4,13 @@ import {Injectable} from '@angular/core';
 export class PostProto {
   private _id: string;
   private _title: string;
-  private _permaLink: string;
+  private _permalink: string;
   private _description: string;
   private _body: string;
   private _tags: Array<string>;
   private _author: string;
   private _comments: Array<CommentProto>;
+  private _views: number;
   private _createTimestamp: number;
   private _updateTimestamp: null;
 
@@ -30,12 +31,12 @@ export class PostProto {
     this._title = value;
   }
 
-  get permaLink(): string {
-    return this._permaLink;
+  get permalink(): string {
+    return this._permalink;
   }
 
-  set permaLink(value: string) {
-    this._permaLink = value;
+  set permalink(value: string) {
+    this._permalink = value;
   }
 
   get description(): string {
@@ -76,6 +77,14 @@ export class PostProto {
 
   set comments(value: Array<CommentProto>) {
     this._comments = value;
+  }
+
+  get views(): number {
+    return this._views;
+  }
+
+  set views(value: number) {
+    this._views = value;
   }
 
   get createTimestamp(): number {

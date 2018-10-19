@@ -51,4 +51,18 @@ export class PublicService {
       return data;
     }));
   }
+
+
+  /**
+   * Get post by permalink
+   * @returns post proto
+   */
+  public getPostByPermalink(permalink: string) {
+    return this.http.get<PostProto>(BlablablogDefaults.SERVER_ADDRESS + 'public/posts/', {
+      params: new HttpParams().set('permalink', permalink.toString())
+    }).pipe(map((data: PostProto) => {
+      console.log('initialize post', data);
+      return data;
+    }));
+  }
 }
