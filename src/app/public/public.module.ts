@@ -14,6 +14,7 @@ import {WidgetLastPostComponent} from '../static/right-aside/widget-last-post/wi
 import {AsideComponent} from '../static/right-aside/aside/aside.component';
 import {WidgetTagsComponent} from '../static/right-aside/widget-tags/widget-tags.component';
 import {WidgetSearchComponent} from '../static/right-aside/widget-search/widget-search.component';
+import {NgxSummernoteModule} from 'ngx-summernote';
 
 // определение маршрутов
 const appRoutes: Routes = [
@@ -35,6 +36,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule,
     FormsModule,
+    NgxSummernoteModule
   ],
   declarations: [
     PublicComponent,
@@ -46,7 +48,7 @@ const appRoutes: Routes = [
     AsideComponent,
     WidgetSearchComponent,
     WidgetLastPostComponent,
-    WidgetTagsComponent
+    WidgetTagsComponent,
   ],
   providers: [
     PublicService,
