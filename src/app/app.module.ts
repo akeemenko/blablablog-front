@@ -8,10 +8,7 @@ import {FormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ErrorsComponent } from './errors/errors.component';
 import {PublicModule} from './public/public.module';
-import { AsideComponent } from './static/right-aside/aside/aside.component';
-import { WidgetSearchComponent } from './static/right-aside/widget-search/widget-search.component';
-import { WidgetLastPostComponent } from './static/right-aside/widget-last-post/widget-last-post.component';
-import { WidgetTagsComponent } from './static/right-aside/widget-tags/widget-tags.component';
+import {PrivateModule} from './private/private.module';
 
 @NgModule({
   imports: [
@@ -23,7 +20,8 @@ import { WidgetTagsComponent } from './static/right-aside/widget-tags/widget-tag
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    PublicModule
+    PublicModule,
+    PrivateModule
   ],
   declarations: [
     AppComponent,

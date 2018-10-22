@@ -43,7 +43,7 @@
                 <div *ngFor="let tag of post.tags" class="category">
                   <a [routerLink]="['/tag/', tag]">{{tag}}</a>
                 </div>
-                <a [routerLink]="['/post/', post.permalink]">
+                <a [routerLink]="['/blog/', post.permalink]">
                   <h2 class="h4">{{post.title}}</h2>
                 </a>
               </header>
@@ -99,7 +99,7 @@
       <ng-container *ngFor="let post of lastPosts">
         <div class="post col-md-4">
           <div class="post-thumbnail">
-            <a [routerLink]="['/post/', post.permalink]">
+            <a [routerLink]="['/blog/', post.permalink]">
               <img src="/src/assets/img/blog-1.jpg" alt="..." class="img-fluid">
             </a>
           </div>
@@ -110,7 +110,7 @@
                 <a [routerLink]="['/tag/', tag]">{{tag}}</a>
               </div>
             </div>
-            <a [routerLink]="['/post/', post.permalink]">
+            <a [routerLink]="['/blog/', post.permalink]">
               <h3 class="h4">{{post.title}}</h3></a>
             <p class="text-muted">{{post.description}}</p>
           </div>

@@ -7,13 +7,13 @@ import {HomeComponent} from './home/home.component';
 import { BlogComponent } from './blog/blog.component';
 import { PostComponent } from './post/post.component';
 import {PublicGuard} from './public.guard';
-import {TopMenuComponent} from '../static/top-menu/top-menu.component';
-import {FooterComponent} from '../static/footer/footer.component';
+import {TopMenuComponent} from './static/top-menu/top-menu.component';
+import {FooterComponent} from './static/footer/footer.component';
 import {PublicService} from './public-service';
-import {WidgetLastPostComponent} from '../static/right-aside/widget-last-post/widget-last-post.component';
-import {AsideComponent} from '../static/right-aside/aside/aside.component';
-import {WidgetTagsComponent} from '../static/right-aside/widget-tags/widget-tags.component';
-import {WidgetSearchComponent} from '../static/right-aside/widget-search/widget-search.component';
+import {WidgetLastPostComponent} from './static/right-aside/widget-last-post/widget-last-post.component';
+import {AsideComponent} from './static/right-aside/aside/aside.component';
+import {WidgetTagsComponent} from './static/right-aside/widget-tags/widget-tags.component';
+import {WidgetSearchComponent} from './static/right-aside/widget-search/widget-search.component';
 import {NgxSummernoteModule} from 'ngx-summernote';
 
 // определение маршрутов
@@ -26,7 +26,7 @@ const appRoutes: Routes = [
       [
         {path: '', component: HomeComponent},
         {path: 'blog', component: BlogComponent},
-        {path: 'post/:permalink', component: PostComponent}
+        {path: 'blog/:permalink', component: PostComponent}
       ]
   }];
 

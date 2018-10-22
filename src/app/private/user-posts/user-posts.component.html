@@ -9,7 +9,7 @@
             <ng-container *ngFor="let post of posts">
               <div class="post col-xl-6">
                 <div class="post-thumbnail">
-                  <a [routerLink]="['/blog/', post.permalink]">
+                  <a [routerLink]="['post/', post.permalink]">
                     <img src="../../../assets/img/blog-post-1.jpeg" alt="..." class="img-fluid">
                   </a>
                 </div>
@@ -20,7 +20,7 @@
                       <a [routerLink]="['/tag/', tag]">{{tag}}</a>
                     </div>
                   </div>
-                  <a [routerLink]="['/blog/', post.permalink]">
+                  <a [routerLink]="['post/', post.permalink]">
                     <h3 class="h4">{{post.title}}</h3>
                   </a>
                   <p class="text-muted">{{post.description}}</p>
