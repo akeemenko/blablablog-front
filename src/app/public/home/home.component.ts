@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {PublicService} from '../public-service';
-import {PostProto} from '../../../models/post-proto';
+import {PostProto} from '../../models/post-proto';
 
 @Component({
   selector: 'app-home',

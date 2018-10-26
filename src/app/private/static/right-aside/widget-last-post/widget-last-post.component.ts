@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {PostProto} from '../../../../../models/post-proto';
+import {PostProto} from '../../../../models/post-proto';
 
 @Component({
   selector: 'app-widget-last-post',

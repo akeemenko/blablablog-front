@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpParams} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {map} from 'rxjs/operators';
-import {PostProto} from '../../models/post-proto';
+import {PostProto} from '../models/post-proto';
 import {BlablablogDefaults} from '../defaults/blablablog-defaults';
+import {CreatePostRequest} from '../protos/create-post-request';
 
 
 @Injectable()
@@ -18,8 +19,7 @@ export class PrivateService {
    * @returns list of hotPosts
    */
   public getPosts() {
-    return this.http.get<Array<PostProto>>(BlablablogDefaults.SERVER_ADDRESS + 'public/posts/', {
-    }).pipe(map((data: Array<PostProto>) => {
+    return this.http.get<Array<PostProto>>(BlablablogDefaults.SERVER_ADDRESS + 'public/posts/', {}).pipe(map((data: Array<PostProto>) => {
       console.log('initialize posts', data);
       return data;
     }));
@@ -66,4 +66,14 @@ export class PrivateService {
       return data;
     }));
   }
+
+
+
+  public createPost(request: CreatePostRequest) {
+    return this.http.post(BlablablogDefaults.SERVER_ADDRESS + 'private/createPost', request.toJsonString(), {
+      headers: new HttpHeaders().set('Content-Type', 'application/json'),
+    });
+  }
 }
+
+

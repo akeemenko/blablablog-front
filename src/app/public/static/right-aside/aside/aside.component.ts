@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {BlablablogDefaults} from '../../../../defaults/blablablog-defaults';
-import {PostProto} from '../../../../../models/post-proto';
+import {PostProto} from '../../../../models/post-proto';
 import {PublicService} from '../../../public-service';
 
 @Component({

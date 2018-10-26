@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {PostProto} from '../../../../models/post-proto';
+import {PostProto} from '../../../models/post-proto';
 import {PrivateService} from '../../private-service';
 
 @Component({
