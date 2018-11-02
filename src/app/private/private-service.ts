@@ -70,7 +70,7 @@ export class PrivateService {
 
 
   public createPost(request: CreatePostRequest) {
-    return this.http.post(BlablablogDefaults.SERVER_ADDRESS + 'private/createPost', request.toJsonString(), {
+    return this.http.post(BlablablogDefaults.SERVER_ADDRESS + 'private/create-post', request.toJsonString(), {
       headers: new HttpHeaders().set('Content-Type', 'application/json'),
     });
   }

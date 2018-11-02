@@ -7,7 +7,8 @@
           <div class="post-single">
             <!-- post picture -->
             <div class="post-thumbnail">
-              <img src="/src/assets/img/blog-post-3.jpeg" alt="..." class="img-fluid">
+              <img *ngIf="!post.titleImage" src="/src/assets/img/blog-post-3.jpeg" alt="" class="img-fluid">
+              <img *ngIf="post.titleImage" [src]="post.titleImage" alt="" class="img-fluid">
             </div>
 
             <!-- post details -->
@@ -40,7 +41,7 @@
               </div>
               <div class="post-body">
                 <p class="lead">{{post.description}}</p>
-                <p>{{post.body}}</p>
+                <div [ngxSummernoteView]="post.body"></div>
               </div>
               <div class="post-tags">
                 <div *ngFor="let tag of post.tags">

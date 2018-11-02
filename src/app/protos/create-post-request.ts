@@ -9,8 +9,14 @@ export class CreatePostRequest extends AbstractRequest {
   private _body: string;
   private _tags: Array<string>;
 
-  constructor() {
+
+  constructor(title: string, titleImage: string, description: string, body: string, tags: Array<string>) {
     super();
+    this._title = title;
+    this._titleImage = titleImage;
+    this._description = description;
+    this._body = body;
+    this._tags = tags;
   }
 
   get title(): string {

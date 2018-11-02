@@ -4,6 +4,7 @@ import {Injectable} from '@angular/core';
 export class PostProto {
   private _id: string;
   private _title: string;
+  private _titleImage: string;
   private _permalink: string;
   private _description: string;
   private _body: string;
@@ -30,6 +31,14 @@ export class PostProto {
 
   set title(value: string) {
     this._title = value;
+  }
+
+  get titleImage(): string {
+    return this._titleImage;
+  }
+
+  set titleImage(value: string) {
+    this._titleImage = value;
   }
 
   get permalink(): string {

@@ -14,25 +14,64 @@ export class NewPostComponent implements OnInit {
   title = '';
   titleImage = '';
   description = '';
-  body = '';
-  tags: Array<string>;
-  request: CreatePostRequest = new CreatePostRequest();
+  tags: Array<string> = [];
 
 
   constructor(private privatService: PrivateService) {
   }
 
   ngOnInit() {
-    this.summernote = $('#summernote').summernote();
+    this.summernote = $('#summernote').summernote({
+     // airMode: true
+    });
   }
 
-  saveSummernote() {
-    if (this.summernote.summernote('isEmpty')) {
-      alert('editor content is empty');
+  /**
+   * Save new post
+   */
+  onSaveClick() {
+    if (!this.validate()) {
+      return;
     }
-    const code = this.summernote.summernote('code');
-    console.log(code);
+    const request = new CreatePostRequest(this.title, this.titleImage, this.description, this.summernote.summernote('code'), this.tags);
+    this.privatService.createPost(request).subscribe(() => {
+
+    }, error => {
+      let msg = 'error_server_not_answer';
+      if (error.statusText !== 'Unknown Error') {
+        msg = error.statusText;
+      }
+      console.log(error);
+    });
   }
+
+  /**
+   * Validate input fields
+   */
+  validate(): boolean {
+    if (this.titleImage.length === 0) {
+      alert('you must add a title image');
+      return false;
+    }
+    if (this.title.length === 0) {
+      alert('you must add a title');
+      return false;
+    }
+    /*if (this.tags.length === 0) {
+      alert('you must add a tag');
+      return false;
+    }*/
+    if (this.summernote.summernote('isEmpty')) {
+      alert('you must add a body');
+      return false;
+    }
+    if (this.description.length === 0) {
+      alert('you must add a description');
+      return false;
+    }
+    return true;
+  }
+
 
   /**
    * Handle file upload
@@ -42,7 +81,6 @@ export class NewPostComponent implements OnInit {
     const file = e.dataTransfer ? e.dataTransfer.files[0] : e.target.files[0];
     const pattern = /image-*/;
     const reader = new FileReader();
-
     if (!file.type.match(pattern)) {
       alert('invalid format');
       return;
@@ -57,42 +95,5 @@ export class NewPostComponent implements OnInit {
   _handleReaderLoaded(e) {
     const reader = e.target;
     this.titleImage = reader.result;
-  }
-
-
-  createPost() {
-    if (!this.validate()) {
-      return;
-    }
-
-    this.privatService
-  }
-
-  /**
-   * Validate input fields
-   * @returns {boolean}
-   */
-  validate(): boolean {
-    if (this.titleImage.length == 0) {
-      alert('you must add a title image');
-      return false;
-    }
-    if (this.title.length == 0) {
-      alert('you must add a title');
-      return false;
-    }
-    if (this.tags.length == 0) {
-      alert('you must add a tag');
-      return false;
-    }
-    if (this.body.length == 0) {
-      alert('you must add a body');
-      return false;
-    }
-    if (this.description.length == 0) {
-      alert('you must add a description');
-      return false;
-    }
-    return true;
   }
 }
