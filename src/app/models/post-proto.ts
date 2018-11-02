@@ -9,8 +9,9 @@ export class PostProto {
   private _body: string;
   private _tags: Array<string>;
   private _author: string;
-  private _comments: Array<CommentProto>;
+  private _commentList: Array<CommentProto>;
   private _views: number;
+  private _comments: number;
   private _createTimestamp: number;
   private _updateTimestamp: null;
 
@@ -71,12 +72,12 @@ export class PostProto {
     this._author = value;
   }
 
-  get comments(): Array<CommentProto> {
-    return this._comments;
+  get commentList(): Array<CommentProto> {
+    return this._commentList;
   }
 
-  set comments(value: Array<CommentProto>) {
-    this._comments = value;
+  set commentList(value: Array<CommentProto>) {
+    this._commentList = value;
   }
 
   get views(): number {
@@ -85,6 +86,14 @@ export class PostProto {
 
   set views(value: number) {
     this._views = value;
+  }
+
+  get comments(): number {
+    return this._comments;
+  }
+
+  set comments(value: number) {
+    this._comments = value;
   }
 
   get createTimestamp(): number {
